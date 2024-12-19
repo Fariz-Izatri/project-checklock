@@ -1,0 +1,42 @@
+ERROR - 2024-12-04 06:35:33 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\checklock-ci\system\Database\MySQLi\Connection.php:186
+Stack trace:
+#0 C:\xampp\htdocs\checklock-ci\system\Database\MySQLi\Connection.php(186): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), '', 3306, '', 0)
+#1 C:\xampp\htdocs\checklock-ci\system\Database\BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\checklock-ci\system\Database\Database.php(72): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\checklock-ci\system\Database\Config.php(111): CodeIgniter\Database\Database->loadForge(Object(CodeIgniter\Database\MySQLi\Connection))
+#4 C:\xampp\htdocs\checklock-ci\system\Commands\Database\CreateDatabase.php(136): CodeIgniter\Database\Config::forge()
+#5 C:\xampp\htdocs\checklock-ci\system\CLI\Commands.php(70): CodeIgniter\Commands\Database\CreateDatabase->run(Array)
+#6 C:\xampp\htdocs\checklock-ci\system\CLI\Console.php(48): CodeIgniter\CLI\Commands->run('db:create', Array)
+#7 C:\xampp\htdocs\checklock-ci\system\Boot.php(351): CodeIgniter\CLI\Console->run()
+#8 C:\xampp\htdocs\checklock-ci\system\Boot.php(104): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+#9 C:\xampp\htdocs\checklock-ci\spark(84): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+#10 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\checklock-ci\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\checklock-ci\system\Database\BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\checklock-ci\system\Database\Database.php(72): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\checklock-ci\system\Database\Config.php(111): CodeIgniter\Database\Database->loadForge(Object(CodeIgniter\Database\MySQLi\Connection))
+#3 C:\xampp\htdocs\checklock-ci\system\Commands\Database\CreateDatabase.php(136): CodeIgniter\Database\Config::forge()
+#4 C:\xampp\htdocs\checklock-ci\system\CLI\Commands.php(70): CodeIgniter\Commands\Database\CreateDatabase->run(Array)
+#5 C:\xampp\htdocs\checklock-ci\system\CLI\Console.php(48): CodeIgniter\CLI\Commands->run('db:create', Array)
+#6 C:\xampp\htdocs\checklock-ci\system\Boot.php(351): CodeIgniter\CLI\Console->run()
+#7 C:\xampp\htdocs\checklock-ci\system\Boot.php(104): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+#8 C:\xampp\htdocs\checklock-ci\spark(84): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+#9 {main}
+ERROR - 2024-12-04 07:14:46 --> mysqli_sql_exception: Can't create table `db_checklock`.`users` (errno: 150 "Foreign key constraint is incorrectly formed") in C:\xampp\htdocs\checklock-ci\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\checklock-ci\system\Database\MySQLi\Connection.php(312): mysqli->query('CREATE TABLE `u...', 0)
+#1 C:\xampp\htdocs\checklock-ci\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `u...')
+#2 C:\xampp\htdocs\checklock-ci\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `u...')
+#3 C:\xampp\htdocs\checklock-ci\system\Database\Forge.php(570): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `u...')
+#4 C:\xampp\htdocs\checklock-ci\app\Database\Migrations\2024-12-04-065653_Users.php(41): CodeIgniter\Database\Forge->createTable('users')
+#5 C:\xampp\htdocs\checklock-ci\system\Database\MigrationRunner.php(867): App\Database\Migrations\Users->up()
+#6 C:\xampp\htdocs\checklock-ci\system\Database\MigrationRunner.php(183): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 C:\xampp\htdocs\checklock-ci\system\Commands\Database\Migrate.php(85): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 C:\xampp\htdocs\checklock-ci\system\CLI\Commands.php(70): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 C:\xampp\htdocs\checklock-ci\system\CLI\Console.php(48): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 C:\xampp\htdocs\checklock-ci\system\Boot.php(351): CodeIgniter\CLI\Console->run()
+#11 C:\xampp\htdocs\checklock-ci\system\Boot.php(104): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+#12 C:\xampp\htdocs\checklock-ci\spark(84): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+#13 {main}
