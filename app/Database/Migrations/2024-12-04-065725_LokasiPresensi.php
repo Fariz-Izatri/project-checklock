@@ -40,7 +40,7 @@ class LokasiPresensi extends Migration
                 'constraint' => '11',
             ],
             'zona_waktu' => [
-                'type'       => 'INT',
+                'type'       => 'VARCHAR',
                 'constraint' => '4',
             ],
             'jam_masuk' => [

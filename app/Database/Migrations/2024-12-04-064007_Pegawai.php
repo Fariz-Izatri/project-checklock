@@ -40,8 +40,8 @@ class Pegawai extends Migration
                 'constraint' => '50',
             ],
             'lokasi_presensi' => [
-                'type' => 'VARCHAR',
-                'constraint' => '50',
+                'type' => 'INT',
+                'constraint' => '',
             ],
             'foto' => [
                 'type' => 'VARCHAR',
