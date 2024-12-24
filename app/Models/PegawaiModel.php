@@ -6,26 +6,35 @@ use CodeIgniter\Model;
 
 class PegawaiModel extends Model
 {
-    protected $table      = 'pegawai';
-    protected $primaryKey = 'id';
-
-    protected $useAutoIncrement = true;
-    protected $returnType     = 'array';
-    protected $useSoftDeletes = false;
-
-    protected $allowedFields = ['nip', 'nama', 'jenis_kelamin', 'alamat', 'no_handphone', 'jabatan', 'lokasi_presensi', 'foto'];
-
-    // Validasi
-    protected $validationRules    = [
-        'nip'            => 'required|is_unique[pegawai.nip]',
-        'nama'           => 'required',
-        'jenis_kelamin'  => 'required',
-        'alamat'         => 'required',
-        'no_handphone'   => 'required',
-        'jabatan'        => 'required',
-        'lokasi_presensi' => 'required',
-        'foto'           => 'required',
+    protected $table            = 'pegawai';
+    protected $allowedFields    = [
+        'nip',
+        'nama',
+        'jenis_kelamin',
+        'alamat',
+        'no_handphone',
+        'jabatan',
+        'lokasi_presensi',
+        'foto'
     ];
-    protected $validationMessages = [];
-    protected $skipValidation     = false;
+
+    public function detailPegawai($id)
+    {
+        $db = \Config\Database::connect();
+        $builder = $db->table('pegawai');
+        $builder->select('pegawai.*, users.username, users.status, users.role');
+        $builder->join('users', 'users.id_pegawai = pegawai.id');
+        $builder->where('pegawai.id', $id);
+        return $builder->get()->getRowArray();
+    }
+
+    public function editPegawai($id)
+    {
+        $db = \Config\Database::connect();
+        $builder = $db->table('pegawai');
+        $builder->select('pegawai.*, users.username, users.password, users.status, users.role');
+        $builder->join('users', 'users.id_pegawai = pegawai.id');
+        $builder->where('pegawai.id', $id);
+        return $builder->get()->getRowArray();
+    }
 }
